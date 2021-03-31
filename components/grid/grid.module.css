@@ -8,6 +8,23 @@
     flex-wrap: wrap;
     text-align: left;
 
-    padding: 20px 0 20px 0;
+    padding: 20px 0px 20px 0px;
     margin-bottom: 10px;
+}
+
+.container .column {
+    flex-basis: 25%;
+    border-right: solid;
+    border-width: 1px;
+    border-color: #cacaca;
+}
+
+.container .column:first-child {
+
+
+}
+
+.container .column:last-child {
+    border: none;
+
 }

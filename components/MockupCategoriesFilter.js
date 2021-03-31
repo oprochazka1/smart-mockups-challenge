@@ -31,14 +31,12 @@ const MockupCategoriesFilter = () => {
           { id: "", title: "Show All" },
           ...filteredCategories.map((o) => ({ id: o.slug, title: o.title, tooltip: o.title })),
         ]}
-        columns={4}
-      />
-
-      <FilteredData
-        click={() => true}
-        items={mockups.map((o) => ({ id: o.id, title: o.title, imageUrl: o.thumb }))}
-        columns={4}
-      />
+      >
+        <FilteredData
+          click={() => true}
+          items={mockups.map((o) => ({ id: o.id, title: o.title, imageUrl: o.thumb }))}
+        />
+      </Filter>
     </div>
   )
 }
