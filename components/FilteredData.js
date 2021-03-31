@@ -4,11 +4,17 @@ import DescribedImage from "./basicElements/DescribedImage"
 
 export default function Filter({ items, click, columns }) {
   return (
-    <Grid classes={{ grid: styles.container, column: styles.column }} columns={columns}>
+    <div className={styles.container}>
       {items.map((item, key) => (
-        <DescribedImage key={key} onClick={() => click(item.id)} title={item.title} imageUrl={item.imageUrl} />
+        <DescribedImage
+          classes={{ container: styles.describedImg, image: styles.image }}
+          key={key}
+          onClick={() => click(item.id)}
+          title={item.title}
+          imageUrl={item.imageUrl}
+        />
       ))}
-    </Grid>
+    </div>
   )
 }
 

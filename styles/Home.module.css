@@ -14,6 +14,7 @@
   flex-direction: column;
   justify-content: normal;
   align-items: center;
+  max-width: 1000px;
 }
 
 .footer {

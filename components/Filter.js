@@ -5,9 +5,9 @@ import cn from "classnames"
 
 export default function Filter({ items, click, columns, tooltip, chosen }) {
   return (
-    <Grid className={styles.container} columns={columns}>
+    <Grid className={styles.container}>
       {items.map((item, key) => (
-        <Tooltip key={key} message={item.tooltip}>
+        <Tooltip key={key} message={item.tooltip} classes={{ tooltip: styles.tooltip }}>
           <div
             className={cn(styles.filterItem, { [styles.focusedItem]: chosen === item.id })}
             onClick={() => click(item.id)}

@@ -33,6 +33,7 @@ const MockupCategoriesFilter = () => {
         ]}
         columns={4}
       />
+
       <FilteredData
         click={() => true}
         items={mockups.map((o) => ({ id: o.id, title: o.title, imageUrl: o.thumb }))}

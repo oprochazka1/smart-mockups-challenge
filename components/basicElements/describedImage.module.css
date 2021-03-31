@@ -1,7 +1,22 @@
 .container {
-    display: flex;
-    margin-bottom: 10px;
     cursor: pointer;
+    position: relative;
+}
+
+.container .middle {
+    position: absolute;
+    bottom: 0px;
+    text-align: left;
+    padding: 10px;
+}
+
+.container .title {
+    display: none;
+}
+
+.container:hover .title {
+    display: block;
+    color: white;
 }
 
 .container .image {

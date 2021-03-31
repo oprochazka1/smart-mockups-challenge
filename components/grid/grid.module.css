@@ -4,5 +4,10 @@
     border-width: 1px;
     border-color: #cacaca;
     border-radius: 5px;
+
     flex-wrap: wrap;
+    text-align: left;
+
+    padding: 20px 0 20px 0;
+    margin-bottom: 10px;
 }

@@ -10,3 +10,20 @@
 .container {
 
 }
+
+.tooltip {
+    position: relative;
+    flex-wrap: wrap;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    flex-basis: 25%;
+    border-right: solid;
+    border-width: 1px;
+    border-color: #cacaca;
+    padding-left: 10px;
+}
+
+.tooltip:nth-of-type(4n) {
+    border-right-style: none;
+}
