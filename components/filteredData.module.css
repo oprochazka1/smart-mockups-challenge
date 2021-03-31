@@ -1,0 +1,11 @@
+.container {
+    border-style: none;
+}
+.column{
+    border-style: none;
+    margin-left: 0;
+    padding-right: 10px;
+    width: 225px;
+}
+
+

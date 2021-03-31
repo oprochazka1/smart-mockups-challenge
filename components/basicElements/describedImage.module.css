@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.container .image {
+    width: 100%;
+    border-radius: 5px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent;
+}
+
+.container:hover .image {
+    border-color: #33b2e1
+}

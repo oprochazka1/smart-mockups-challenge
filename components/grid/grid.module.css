@@ -1,0 +1,8 @@
+.container {
+    display: flex;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #cacaca;
+    border-radius: 5px;
+    flex-wrap: wrap;
+}
