@@ -43,7 +43,14 @@ const MockupFilterView = () => {
           icon={faFilter}
         />
       </div>
-      {isLoading ? <Loading /> : <MockupCategoriesFilter isMobileInvisibleFilter={isMobileInvisibleFilter} />}
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <MockupCategoriesFilter
+          onChooseFilter={() => setMobileInvisibleFilter(true)}
+          isMobileInvisibleFilter={isMobileInvisibleFilter}
+        />
+      )}
     </>
   )
 }

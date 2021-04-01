@@ -4,7 +4,7 @@ import { useCategories, useFilteredMockups } from "../../actions/mockups"
 import { useRouter } from "next/router"
 import styles from "./mockupCategoriesFIlter.module.css"
 
-const MockupCategoriesFilter = ({ isMobileInvisibleFilter }) => {
+const MockupCategoriesFilter = ({ isMobileInvisibleFilter, onChooseFilter }) => {
   const router = useRouter()
   const filteredCategories = useCategories()
   const mockups = useFilteredMockups(router.query.id)
@@ -13,6 +13,7 @@ const MockupCategoriesFilter = ({ isMobileInvisibleFilter }) => {
     router.push({
       query: { id },
     })
+    onChooseFilter?.(id)
   }
 
   return (
