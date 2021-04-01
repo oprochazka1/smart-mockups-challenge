@@ -1,6 +1,11 @@
 import { useDispatch } from "react-redux"
 import { useEffect, useState } from "react"
-import { fetchMockupFilter, useIsMockupDataError, useIsMockupDataLoading } from "../../actions/mockups"
+import {
+  fetchMockupFilter,
+  useIsMockupDataError,
+  useIsMockupDataLoading,
+  useMockupDataErrorMsg,
+} from "../../actions/mockups"
 import MockupCategoriesFilter from "./MockupCategoriesFilter"
 import Loading from "../basicElements/Loading"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -12,6 +17,7 @@ const MockupFilterView = () => {
   const dispatch = useDispatch()
   const isLoading = useIsMockupDataLoading()
   const isError = useIsMockupDataError()
+  const errorMessage = useMockupDataErrorMsg()
   const [isMobileInvisibleFilter, setMobileInvisibleFilter] = useState(false)
 
   useEffect(() => {
@@ -25,7 +31,7 @@ const MockupFilterView = () => {
   }, [isMobileInvisibleFilter])
 
   if (isError) {
-    return <Error>Unable to fetch data from server.</Error>
+    return <Error className={styles.error}>{errorMessage}</Error>
   }
 
   return (

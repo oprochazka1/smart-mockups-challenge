@@ -2,29 +2,23 @@ import configureMockStore from "redux-mock-store"
 import thunk from "redux-thunk"
 import { client } from "../../common/mockupClient"
 import { fetchMockupFilter } from "../mockups"
+import { Status } from "./../../constants/types"
+import categories from "./category.json"
+import mockups from "./mockup.json"
 
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
 client.getCategories = jest.fn()
 client.getCategories.mockImplementation(async () => {
-  return [
-    {
-      title: "Technology",
-      slug: "digital",
-      children: [
-        { title: "Smartphone", slug: "smartphone", children: [] },
-        { title: "Smartphone", slug: "smart-phone", children: [] },
-      ],
-    },
-  ]
+  return categories
 })
 
 client.getMockups = jest.fn()
 client.getMockups.mockImplementation(async () => {
-  return [{ id: "sdf", title: "test", category: ["digital"], thumb: "test" }]
+  return mockups
 })
 
-const store = mockStore({ mockupData: { categories: [], mockups: [], loading: "idle" } })
+const store = mockStore({ mockupData: { categories: [], mockups: [], status: Status.NOT_LOADED } })
 
 describe("mockups async action", () => {
   it("Test filtered categories", async () => {
@@ -32,7 +26,7 @@ describe("mockups async action", () => {
     const result = await store.dispatch(fetchMockupFilter())
 
     expect(store.getActions().map((a) => a.type)).toEqual(expectedActions)
-    expect(result.payload[0].length).toBe(1)
-    expect(result.payload[1].length).toBe(1)
+    expect(result.payload[0].length).toBe(2)
+    expect(result.payload[1].length).toBe(2)
   })
 })

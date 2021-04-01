@@ -19,6 +19,7 @@ export const mockupFilterSlice = createSlice({
     },
     [fetchMockupFilter.rejected]: (state, action) => {
       state.status = Status.ERROR
+      state.error = action.error.message
     },
   },
 })

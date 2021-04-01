@@ -53,3 +53,7 @@ export const useIsMockupDataError = () => {
   const status = useSelector((state) => state.mockupData.status)
   return status === Status.ERROR
 }
+
+export const useMockupDataErrorMsg = () => {
+  return useSelector((state) => state.mockupData.error)
+}

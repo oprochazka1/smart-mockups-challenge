@@ -1,5 +1,4 @@
 import styles from "./describedImage.module.css"
-import Image from "next/image"
 import cn from "classnames"
 
 export default function DescribedImage({ imageUrl, title, classes }) {

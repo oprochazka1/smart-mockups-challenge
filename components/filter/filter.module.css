@@ -12,9 +12,6 @@
     width: 100%;
 }
 
-.tooltip {
-}
-
 @media (max-width: 600px){
     .container {
         display: block;
