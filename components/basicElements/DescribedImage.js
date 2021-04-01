@@ -1,6 +1,6 @@
 import styles from "./describedImage.module.css"
 import cn from "classnames"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Loading from "./Loading"
 
 const getImageSizeFromUrl = (imageUrl) => {
@@ -11,15 +11,17 @@ const getImageSizeFromUrl = (imageUrl) => {
 
 export default function DescribedImage({ imageUrl, title, classes }) {
   const [isLoading, setLoading] = useState(true)
+  const image = useRef(null)
 
   useEffect(() => {
-    setLoading(true)
+    setLoading(!image.current?.complete)
   }, [imageUrl])
 
   return (
     <div className={cn(styles.container, classes?.container)}>
       {isLoading && <Loading className={cn(styles.loading)} />}
       <img
+        ref={image}
         width={getImageSizeFromUrl(imageUrl).width}
         height={getImageSizeFromUrl(imageUrl).height}
         onError={() => setLoading(false)}
