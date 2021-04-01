@@ -3,7 +3,12 @@ export const fetchAction = {
   STOP_ACTION: "STOP_ACTION",
 }
 
-export const mockupActions = {
-  FETCH_MOCKUPS: "FETCH_MOCKUPS",
-  FETCH_CATEGORIES: "FETCH_CATEGORIES",
+export const mockupSliceTypes = {
+  mockupFilter: "mockupFilter",
 }
+
+export const mockupAsyncAction = {
+  mockupFilter: "mockupFilter/fetchMockupFilter",
+}
+
+export const LOADING = "loading"

@@ -2,3 +2,25 @@
     text-align: center;
     width: 100%;
 }
+
+.filterBar {
+    background-color: #33b2e1;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 10px;
+    left: 0;
+    z-index: 1;
+}
+.filterIcon {
+    width: 42px;
+    height: 42px;
+    text-align: left;
+    float: left;
+}
+
+@media (min-width: 600px){
+    .filterBar {
+        display: none;
+    }
+}

@@ -6,7 +6,7 @@ import cn from "classnames"
 export default function Filter({ items, click, columns, tooltip, chosen, children }) {
   return (
     <div>
-      <Grid className={styles.container} columns={4}>
+      <Grid classes={{ grid: styles.container, column: styles.column }} columns={4}>
         {items.map((item, key) => (
           <Tooltip key={key} message={item.tooltip} classes={{ tooltip: styles.tooltip }}>
             <div

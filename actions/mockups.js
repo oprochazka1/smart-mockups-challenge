@@ -1,7 +1,7 @@
 import { client } from "../common/mockupClient"
-import { mockupActions } from "../constants/types"
-import mockupData from "../reducers/mockupReducer"
+import { LOADING, mockupAsyncAction } from "../constants/types"
 import { useSelector } from "react-redux"
+import { createAsyncThunk } from "@reduxjs/toolkit"
 
 const flatCategories = (categories) => {
   return categories
@@ -15,7 +15,7 @@ const flatCategories = (categories) => {
     .flat()
 }
 
-export const fetchMockupFilter = () => async (dispatch) => {
+export const fetchMockupFilter = createAsyncThunk(mockupAsyncAction.mockupFilter, async (thunkAPI) => {
   const [categories, mockups] = await Promise.all([client.getCategories(), client.getMockups()])
   const usedCategories = [...new Set(mockups.map((mockup) => mockup.category).flat())]
   const flattenCategories = flatCategories(categories)
@@ -27,12 +27,12 @@ export const fetchMockupFilter = () => async (dispatch) => {
   )
   const sortedCategories = uniqueCategories.sort((category, category2) => category.title.localeCompare(category2.title))
 
-  dispatch({ type: mockupActions.FETCH_CATEGORIES, categories: sortedCategories })
-  dispatch({ type: mockupActions.FETCH_MOCKUPS, mockups })
-}
+  return [sortedCategories, mockups]
+})
 
 export const useCategories = () => {
   const categories = useSelector((state) => state.mockupData.categories)
+
   return categories
 }
 
@@ -42,4 +42,9 @@ export const useFilteredMockups = (slug) => {
     return mockups
   }
   return mockups.filter((mockup) => mockup.category.includes(slug))
+}
+
+export const useIsMockupDataLoading = () => {
+  const loading = useSelector((state) => state.mockupData.loading)
+  return loading === LOADING
 }

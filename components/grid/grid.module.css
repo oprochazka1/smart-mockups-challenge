@@ -12,19 +12,13 @@
     margin-bottom: 10px;
 }
 
-.container .column {
+.column {
     flex-basis: 25%;
     border-right: solid;
     border-width: 1px;
     border-color: #cacaca;
 }
 
-.container .column:first-child {
-
-
-}
-
-.container .column:last-child {
+.column:last-child {
     border: none;
-
 }

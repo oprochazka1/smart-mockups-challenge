@@ -1,25 +1,23 @@
 import { combineReducers } from "redux"
-import { mockupActions } from "../constants/types"
+import { LOADING, mockupSliceTypes } from "../constants/types"
+import { createSlice } from "@reduxjs/toolkit"
+import { fetchMockupFilter } from "../actions/mockups"
 
-const mockups = (state = [], { type, mockups }) => {
-  switch (type) {
-    case mockupActions.FETCH_MOCKUPS:
-      return mockups
-    default:
-      return state
-  }
-}
-
-const categories = (state = [], { type, categories }) => {
-  switch (type) {
-    case mockupActions.FETCH_CATEGORIES:
-      return categories
-    default:
-      return state
-  }
-}
-
-export default combineReducers({
-  categories,
-  mockups,
+export const mockupFilterSlice = createSlice({
+  name: mockupSliceTypes.mockupFilter,
+  initialState: { categories: [], mockups: [], loading: "idle" },
+  reducers: {},
+  extraReducers: {
+    [fetchMockupFilter.fulfilled]: (state, action) => {
+      const [categories, mockups] = action.payload
+      state.categories = categories
+      state.mockups = mockups
+      state.loading = "idle"
+    },
+    [fetchMockupFilter.pending]: (state, action) => {
+      state.loading = LOADING
+    },
+  },
 })
+
+export const mockupData = mockupFilterSlice.reducer

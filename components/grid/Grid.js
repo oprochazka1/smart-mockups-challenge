@@ -1,28 +1,28 @@
 import styles from "./grid.module.css"
 import cn from "classnames"
 
-const getPositiveNumber = (num) => {
-  if (num < 0) {
-    return 0
-  }
-  return num
+const getColumn = (children, column, columns) => {
+  const rows = Math.floor(children.length / columns)
+  const residue = children.length % columns
+  return children.slice(
+    column * rows + (residue > column ? column : residue),
+    column * rows + rows + (residue > column ? column + 1 : residue)
+  )
+}
+
+const getFlexStyle = (columns) => {
+  return { flexBasis: 100 / columns + "%" }
 }
 
 export default function Grid({ children, columns, classes }) {
-  const rows = Math.floor(children.length / columns)
-  const residium = children.length % columns
   const columnsArray = [...Array(columns)].map((_, i) => i)
-
-  console.log(columnsArray)
+  columns = columns || 1
 
   return (
     <div className={cn(styles.container, classes?.grid)}>
       {columnsArray.map((i) => (
-        <div key={i} className={cn(styles.column, { container: classes?.column })}>
-          {children.slice(
-            i * rows + (residium > i ? i : residium),
-            i * rows + rows + (residium > i ? i + 1 : residium)
-          )}
+        <div key={i} style={getFlexStyle(columns)} className={cn(styles.column, classes?.column)}>
+          {getColumn(children, i, columns)}
         </div>
       ))}
     </div>
