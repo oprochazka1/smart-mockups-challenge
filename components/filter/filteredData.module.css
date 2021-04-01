@@ -1,7 +1,13 @@
+.main {
+    position: relative;
+    height: 100%;
+}
+
 .container {
     border-style: none;
     display: flex;
     flex-wrap: wrap;
+    position: relative;
     margin: 0 -5px 0 -5px;
 }
 .column{
@@ -21,11 +27,30 @@
     margin-bottom: 10px;
 }
 
+.hidden {
+    display: none;
+}
+
 .image {
     display: inline-flex;
     flex-wrap: wrap;
     flex: 1;
     flex-basis: 25%;
+}
+
+.main .loading {
+    margin: 0;
+    width: 36px;
+    height: 36px;
+
+    top: 40px;
+    left: calc(50% - 18px);
+    opacity: 0;
+}
+
+.main .loadingVisible {
+    opacity: 1;
+    transition: opacity 2s;
 }
 
 @media (max-width: 600px){

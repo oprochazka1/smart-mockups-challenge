@@ -3,7 +3,7 @@ import styles from "./filter.module.css"
 import Tooltip from "../tooltip/Tooltip"
 import cn from "classnames"
 
-export default function Filter({ items, click, columns, tooltip, chosen, children, className }) {
+export default function Filter({ items, click, chosen, children, className }) {
   return (
     <div className={className}>
       <ColumnGrid classes={{ grid: styles.container, column: styles.column }} columns={4}>
