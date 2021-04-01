@@ -22,5 +22,10 @@
   .main {
     padding: 0;
   }
-}
 
+  @media (max-width : 600px){
+    .main {
+      padding-top: 10px;
+    }
+  }
+}
