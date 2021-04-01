@@ -6,11 +6,14 @@ module.exports = {
       // ...
       extends: [
         // ...
-        'plugin:prettier/recommended', // Prettier plugin
+        "plugin:prettier/recommended", // Prettier plugin
       ],
       rules: {
         // ...
-        'prettier/prettier': ['error', {}, { usePrettierrc: true }], // Includes .prettierrc.js rules
+        "prettier/prettier": ["error", {}, { usePrettierrc: true }], // Includes .prettierrc.js rules
+      },
+      env: {
+        jest: true,
       },
     },
   ],

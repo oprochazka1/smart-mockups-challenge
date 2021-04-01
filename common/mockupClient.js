@@ -17,7 +17,7 @@ export const client = async (endpoint, { method, ...customConfig } = {}) => {
 
   let data
   try {
-    const response = await window.fetch(mockupServerURL + endpoint, config)
+    const response = await fetch(mockupServerURL + endpoint, config)
     data = await response.json()
     if (response.ok) {
       return data

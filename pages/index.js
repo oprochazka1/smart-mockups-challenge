@@ -1,6 +1,6 @@
 import Head from "next/head"
 import styles from "../styles/Home.module.css"
-import MockupCategoriesFilter from "../components/MockupCategoriesFilter"
+import MockupFilterView from "../components/specificComponents/MockupFilterView"
 
 export default function Home() {
   return (
@@ -11,7 +11,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <MockupCategoriesFilter />
+        <MockupFilterView />
       </main>
     </div>
   )

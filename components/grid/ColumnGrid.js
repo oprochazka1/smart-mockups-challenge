@@ -1,4 +1,4 @@
-import styles from "./grid.module.css"
+import styles from "./columnGrid.module.css"
 import cn from "classnames"
 
 const getColumn = (children, column, columns) => {
@@ -14,7 +14,7 @@ const getFlexStyle = (columns) => {
   return { flexBasis: 100 / columns + "%" }
 }
 
-export default function Grid({ children, columns, classes }) {
+export default function ColumnGrid({ children, columns, classes }) {
   const columnsArray = [...Array(columns)].map((_, i) => i)
   columns = columns || 1
 
@@ -29,4 +29,4 @@ export default function Grid({ children, columns, classes }) {
   )
 }
 
-module.exports = Grid
+module.exports = ColumnGrid

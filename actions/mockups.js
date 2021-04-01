@@ -1,5 +1,5 @@
 import { client } from "../common/mockupClient"
-import { LOADING, mockupAsyncAction } from "../constants/types"
+import { Status, mockupAsyncAction } from "../constants/types"
 import { useSelector } from "react-redux"
 import { createAsyncThunk } from "@reduxjs/toolkit"
 
@@ -45,6 +45,11 @@ export const useFilteredMockups = (slug) => {
 }
 
 export const useIsMockupDataLoading = () => {
-  const loading = useSelector((state) => state.mockupData.loading)
-  return loading === LOADING
+  const status = useSelector((state) => state.mockupData.status)
+  return status === Status.LOADING || status === Status.NOT_LOADED
+}
+
+export const useIsMockupDataError = () => {
+  const status = useSelector((state) => state.mockupData.status)
+  return status === Status.ERROR
 }

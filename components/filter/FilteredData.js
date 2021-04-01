@@ -1,8 +1,7 @@
-import Grid from "./grid/Grid"
 import styles from "./filteredData.module.css"
-import DescribedImage from "./basicElements/DescribedImage"
+import DescribedImage from "../basicElements/DescribedImage"
 
-export default function Filter({ items, click, columns }) {
+export default function FilterData({ items, click, columns }) {
   return (
     <div className={styles.container}>
       {items.map((item, key) => (
@@ -18,4 +17,4 @@ export default function Filter({ items, click, columns }) {
   )
 }
 
-module.exports = Filter
+module.exports = FilterData

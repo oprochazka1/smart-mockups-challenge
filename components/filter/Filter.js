@@ -1,12 +1,12 @@
-import Grid from "./grid/Grid"
+import ColumnGrid from "../grid/ColumnGrid"
 import styles from "./filter.module.css"
-import Tooltip from "./tooltip/Tooltip"
+import Tooltip from "../tooltip/Tooltip"
 import cn from "classnames"
 
 export default function Filter({ items, click, columns, tooltip, chosen, children, className }) {
   return (
     <div className={className}>
-      <Grid classes={{ grid: styles.container, column: styles.column }} columns={4}>
+      <ColumnGrid classes={{ grid: styles.container, column: styles.column }} columns={4}>
         {items.map((item, key) => (
           <Tooltip key={key} message={item.tooltip} classes={{ tooltip: styles.tooltip }}>
             <div
@@ -17,7 +17,7 @@ export default function Filter({ items, click, columns, tooltip, chosen, childre
             </div>
           </Tooltip>
         ))}
-      </Grid>
+      </ColumnGrid>
       {children}
     </div>
   )

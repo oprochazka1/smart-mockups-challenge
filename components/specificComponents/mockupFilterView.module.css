@@ -1,6 +1,7 @@
-.container {
-    text-align: center;
-    width: 100%;
+@media (min-width: 600px){
+    .filterBar {
+        display: none;
+    }
 }
 
 .filterBar {
@@ -12,20 +13,10 @@
     left: 0;
     z-index: 1;
 }
+
 .filterIcon {
     width: 42px;
     height: 42px;
     text-align: left;
     float: left;
-}
-
-@media (min-width: 600px){
-    .filterBar {
-        display: none;
-    }
-}
-@media (max-width: 600px) {
-    .filterMobileInvisible {
-        display: none;
-    }
 }

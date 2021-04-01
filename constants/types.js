@@ -11,4 +11,9 @@ export const mockupAsyncAction = {
   mockupFilter: "mockupFilter/fetchMockupFilter",
 }
 
-export const LOADING = "loading"
+export const Status = {
+  LOADING: "loading",
+  ERROR: "error",
+  IDLE: "idle",
+  NOT_LOADED: "NOT_LOADED",
+}
