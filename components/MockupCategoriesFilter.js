@@ -17,11 +17,15 @@ const MockupCategoriesFilter = () => {
   const isLoading = useIsMockupDataLoading()
   const [isFilter, setFilter] = useState(true)
 
-  useEffect(() => {}, [isFilter])
-
   useEffect(() => {
     dispatch(fetchMockupFilter())
   }, [])
+
+  useEffect(() => {
+    if (isFilter) {
+      window.scrollTo(0, 0)
+    }
+  }, [isFilter])
 
   const handleClick = (id) => {
     router.push({
@@ -42,16 +46,17 @@ const MockupCategoriesFilter = () => {
               icon={faFilter}
             />
           </div>
-          {isFilter && (
-            <Filter
-              chosen={router.query.id || ""}
-              click={handleClick}
-              items={[
-                { id: "", title: "Show All" },
-                ...filteredCategories.map((o) => ({ id: o.slug, title: o.title, tooltip: o.title })),
-              ]}
-            />
-          )}
+
+          <Filter
+            className={!isFilter ? styles.filterMobileInvisible : ""}
+            chosen={router.query.id || ""}
+            click={handleClick}
+            items={[
+              { id: "", title: "Show All" },
+              ...filteredCategories.map((o) => ({ id: o.slug, title: o.title, tooltip: o.title })),
+            ]}
+          />
+
           <FilteredData items={mockups.map((o) => ({ id: o.id, title: o.title, imageUrl: o.thumb }))} />
         </div>
       )}

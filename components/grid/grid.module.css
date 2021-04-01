@@ -13,7 +13,6 @@
 }
 
 .column {
-    flex-basis: 25%;
     border-right: solid;
     border-width: 1px;
     border-color: #cacaca;
