@@ -1,9 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faSync } from "@fortawesome/free-solid-svg-icons"
 import styles from "./loading.module.css"
+import cn from "classnames"
 
-export default function Loading() {
-  return <FontAwesomeIcon className={styles.container} icon={faSync} />
+export default function Loading({ className }) {
+  return <FontAwesomeIcon className={cn(styles.container, className)} icon={faSync} />
 }
 
 module.exports = Loading

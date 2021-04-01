@@ -29,6 +29,18 @@
     border-color: transparent;
 }
 
+.container .invisible {
+   visibility: hidden;
+}
+
 .container:hover .image {
     border-color: #33b2e1
+}
+
+.container .loading {
+    width: 26px;
+    height: 26px;
+    margin: 0;
+    top: calc(50% - 18);
+    left: calc(50% - 18);
 }
