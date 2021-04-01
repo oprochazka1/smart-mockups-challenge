@@ -1,5 +1,3 @@
-import { mockupServerURL } from "../constants/serverConstants"
-
 const mockups = "/mockups"
 const categories = "/categories"
 
@@ -17,7 +15,7 @@ export const client = async (endpoint, { method, ...customConfig } = {}) => {
 
   let data
   try {
-    const response = await fetch(mockupServerURL + endpoint, config)
+    const response = await fetch(process.env.mockupServer + endpoint, config)
     data = await response.json()
     if (response.ok) {
       return data

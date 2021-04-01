@@ -5,5 +5,8 @@ module.exports = (phase, { defaultConfig }) => {
     images: {
       domains: ["smartmockups-web-assets.imgix.net"],
     },
+    env: {
+      mockupServer: "https://5lt31zvq40.execute-api.us-east-1.amazonaws.com/dev",
+    },
   }
 }
