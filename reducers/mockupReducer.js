@@ -5,7 +5,7 @@ import { fetchMockupFilter } from "../actions/mockups"
 
 export const mockupFilterSlice = createSlice({
   name: mockupSliceTypes.mockupFilter,
-  initialState: { categories: [], mockups: [], status: Status.NOT_LOADED },
+  initialState: { categories: [], mockups: [], status: Status.NOT_LOADED, error: "" },
   reducers: {},
   extraReducers: {
     [fetchMockupFilter.fulfilled]: (state, action) => {

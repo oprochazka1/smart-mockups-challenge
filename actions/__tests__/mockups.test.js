@@ -1,9 +1,7 @@
 import configureMockStore from "redux-mock-store"
-import { LOADING, mockupAsyncAction } from "../constants/types"
 import thunk from "redux-thunk"
-import fetchMock from "fetch-mock"
-import { client } from "../common/mockupClient"
-import { fetchMockupFilter, useCategories, useFilteredMockups, useIsMockupDataLoading } from "./mockups"
+import { client } from "../../common/mockupClient"
+import { fetchMockupFilter } from "../mockups"
 
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
@@ -31,8 +29,8 @@ const store = mockStore({ mockupData: { categories: [], mockups: [], loading: "i
 describe("mockups async action", () => {
   it("Test filtered categories", async () => {
     const expectedActions = ["mockupFilter/fetchMockupFilter/pending", "mockupFilter/fetchMockupFilter/fulfilled"]
-
     const result = await store.dispatch(fetchMockupFilter())
+
     expect(store.getActions().map((a) => a.type)).toEqual(expectedActions)
     expect(result.payload[0].length).toBe(1)
     expect(result.payload[1].length).toBe(1)
